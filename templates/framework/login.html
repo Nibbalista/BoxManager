@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'framework/stylesheets/login.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <img src="{% static 'framework/logo.jpg' %}" alt="logo">
+            <h1>Box Manager</h1>  
+        </div>
+
+        <div class="title">
+            <h1>Connexion</h1>
+            <hr>
+        </div>
+    </header>
+
+    <main>
+        <form action="api/login/" method="post">
+            <label for="nameInput"> <h3>Identifiant</h3> </label>
+            <br>
+            <input id="nameInput" type="text" name="nameInput">
+            <br>
+            
+            <label for="passwordInput"> <h3>Mot de passe</h3> </label>
+            <br>
+            <input id="passwordInput" type="text" name="passwordInput">
+            <br>
+        </form>
+
+        <button class="confirm" onclick="location.href = '/missions/'">
+            <p>Confirmer</p>
+        </button>
+    </main>
+</body>
+
+<script>
+
+</script>
+
+</html>

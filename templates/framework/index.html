@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <style> @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap'); </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'framework/stylesheets/style.css' %}">
+</head>
+<body>
+    <img class="main" src="{% static 'framework/logo.jpg' %}" alt="logo">
+    <h1>Box Manager</h1>
+    <img class="loading" src="{% static 'framework/loading.png' %}" alt="loading">
+</body>
+
+<script>
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    delay(5000).then(() => window.location.replace("{% url 'framework:login'%}"));
+</script>
+
+</html>
