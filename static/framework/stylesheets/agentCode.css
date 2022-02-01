@@ -1,0 +1,41 @@
+.main {
+  align-items: center;
+  height: calc(100vh - 72px);
+  justify-content: space-evenly;
+  padding: 56px 16px;
+  box-sizing: border-box;
+}
+
+main div {
+  display: flex;
+  flex-direction: column;
+}
+
+main img {
+  width: 75%;
+  max-width: 300px;
+  height: fit-content;
+  display: block;
+}
+
+main p {
+  margin: 16px 0px;
+
+  text-align: center;
+  font-weight: 400;
+}
+
+main button {
+  padding: 4px 24px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-style: none;
+  border-radius: 7.5px;
+  background-color: #24c686;
+  font-size: 24px;
+  color: white;
+}

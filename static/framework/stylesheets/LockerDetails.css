@@ -1,277 +1,134 @@
-body{
-    margin: 0;
-    padding: 0px 32px;
-    box-sizing: border-box;
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    font-family: 'Montserrat', sans-serif;
+.topMenu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px 0;
+  border-bottom: 2px solid #707b8e;
 }
 
-h1{
-    margin: 0;
+.topMenu h1 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #053c42;
+  font-weight: 600;
+  font-size: 24;
 }
 
-h2, h3, p{
-    margin: 0;
-    font-weight: 500;
+.section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  margin: 16px 0;
 }
 
-header{
-    position: fixed;
-    z-index: 5;
-
-    width: 100%;
-    height: 172px;
-    padding: 0px 32px;
-    padding-top: 16px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    background-color: rgb(255, 255, 255);
-    color: #24C686;
+.property {
+  display: flex;
 }
 
-header h1{
-    margin: 0;
-    margin-left: 8px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.property h3 {
+  width: calc(100% / 3);
+}
+.property div {
+  flex: 1;
 }
 
-main{
-    width: 100%;
-    margin-top: 172px;
-    margin-bottom: 88px;
+.property {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header-main{
-    width: 100%;
-    height: 60px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.property.sp {
+  color: #053c42;
 }
 
-.header-main img{
-    width: auto;
-    height: auto;
-    max-height: 60px;
+.property.sp img {
+  height: 40px;
+  aspect-ratio: 1;
 }
 
-.title{
-    width: 100%;
-    height: 40px;
-
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+.property div {
+  width: 60%;
+  display: flex;
+  flex-flow: row;
+  justify-content: stretch;
+  align-items: flex-end;
 }
 
-.title h1{
-    margin: 0;
-    width: 100%;
+.property .value {
+  padding: 4px 16px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    color: #053C42;
-    font-weight: 500;
-    font-size: 24;
+  border-radius: 7.5px;
+}
+.property .value.a {
+  background-color: #e6f2ed;
+  color: #053c42;
 }
 
-hr{
-    margin: 0;
-    width: 100%;
-    border: 1px solid #707B8E;
+.property .value.b {
+  background-color: #24c686;
+  color: white;
 }
 
-footer{
-    position: fixed;
-    z-index: 6;
-    bottom: 0;
-
-    width: 100%;
-    height: fit-content;
-    padding: 16px 32px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    background-color: white;
+.property .value.c {
+  background-color: #03989e;
+  color: white;
 }
 
-footer button{
-    padding: 4px 16px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-style: none;
-    border-radius: 7.5px;
-    background-color: #24C686;
-    color: white; 
+.property .value.VA {
+  background-color: #24c686;
+  color: white;
 }
 
-footer .retour{
-    width: 48px;
-    height: 48px;
-    bottom: 16px;
-    /* position: absolute; */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #03989E;
+.property .value.NA {
+  background-color: #f23d3d;
+  color: white;
 }
 
-footer .retour p{
-    margin-left: 4px;
-    color: white;
+.property .value.DE {
+  background-color: #ffc700;
+  color: white;
 }
 
-footer .start{
-    padding: 4px 24px;
-    /* width: 128px; */
-    height: 48px;
-
-    font-size: 24px;
-
-    background-color: #24C686;
+.property .value.WI {
+  background-color: #03989e;
+  color: white;
 }
 
-footer .signal{
-    width: 48px;
-    height: 48px;
+.property .value.d {
+  margin-right: 8px;
 
-    background-color: #F23D3D;
+  border-style: none;
+  background-color: #e6f2ed;
+  color: #053c42;
+}
+.bool {
+  height: 40px;
+  aspect-ratio: 1;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #e6f2ed;
 }
 
-.property{
-    width: 100%;
-    margin: 8px 0px;
-
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.property.sp{
-    color: #053C42;
-}
-
-.property.sp img{
-    height: 40px;
-    aspect-ratio: 1;
-}
-
-.property div{
-    width: 60%;
-    display: flex;
-    flex-flow: row;
-    justify-content: stretch;
-    align-items: flex-end;
-}
-
-.property .value{
-    padding: 4px 16px;
-    width: 100%;
-    height: 40px;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 7.5px;
-}
-
-.property .value.a{
-    background-color: #E6F2ED;
-    color: #053C42;
-}
-
-.property .value.b{
-    background-color: #24C686;
-    color: white;
-}
-
-.property .value.c{
-    background-color: #03989E;
-    color: white;
-}
-
-.property .value.VA{
-    background-color: #24C686;
-    color: white;
-}
-
-.property .value.NA{
-    background-color: #F23D3D;
-    color: white;
-}
-
-.property .value.DE{
-    background-color: #FFC700;
-    color: white;
-}
-
-.property .value.WI{
-    background-color: #03989E;
-    color: white;
-}
-
-.property .value.d{
-    margin-right: 8px;
-
-    border-style: none;
-    background-color: #E6F2ED;
-    color: #053C42;
-}
-
-.property .value.e{
-    margin-right: 8px;
-
-    border-style: none;
-    background-color: #24C686;
-    color: white;
-
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: min(16px, 85%);
-}
-
-.bool{
-    height: 40px;
-    aspect-ratio: 1;
-    padding: 0px;
-    margin: 0px;
-
-    border-style: none;
-    border-radius: 5px;
-    background-color: #E6F2ED;
-}
-
-.bool.t{
-    background-color: #24C686;
-    background-image: url("/static/framework/tick-white.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+.bool.t {
+  background-color: #24c686;
+  background-image: url("/static/framework/assets/tick-white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="terminal.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/logo.jpg" alt="logo" />
+      <span>Box Manager</span>
+    </header>
+
+    <main>
+      <div class="container">
+        <button class="locker a validated"></button>
+        <button class="locker b error"></button>
+        <button class="locker c withdrawal"></button>
+        <button class="locker d deposit"></button>
+        <button class="locker e"></button>
+        <button class="locker f"></button>
+        <button class="locker g"></button>
+        <button class="locker h"></button>
+        <button class="locker i"></button>
+        <button class="locker j"></button>
+        <button class="locker k"></button>
+        <button class="locker l"></button>
+
+        <div class="menu">
+          <div class="progress"><p>100%</p></div>
+          <div class="stats">
+            <p class="dep">5</p>
+            <p class="wit">2</p>
+          </div>
+          <button class="menubtn">Menu</button>
+        </div>
+
+        <button class="locker m"></button>
+        <button class="locker n"></button>
+        <button class="locker o"></button>
+        <button class="locker p"></button>
+        <button class="locker q"></button>
+        <button class="locker r"></button>
+        <button class="locker s"></button>
+        <button class="locker t"></button>
+        <button class="locker u"></button>
+        <button class="locker v"></button>
+        <button class="locker w"></button>
+        <button class="locker x"></button>
+      </div>
+    </main>
+
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
+  </body>
+</html>
