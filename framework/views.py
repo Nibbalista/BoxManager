@@ -1,3 +1,4 @@
+from re import template
 from typing import TYPE_CHECKING
 from django import http, forms
 from django.db.models.fields import IPAddressField
@@ -81,3 +82,15 @@ class LockerDetails(TemplateView):
 
 class ErrorPage(TemplateView):
     template_name = 'framework/error.html'
+
+
+# class QRScanner('TemplateView'):
+#     template_name = 'framework/qrcode.html'
+
+#     def get_object_data(self, **kwargs):
+#             context = super().get_context_data(**kwargs)
+#             # payload = Technician.get(...)
+#             payload = "http://www.republiquedesmangues.fr/"
+#             context["payload"] = payload
+#             return context
+        

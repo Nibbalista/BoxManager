@@ -54,7 +54,10 @@
 
     <footer>
       <button class="retour" onclick="goBack()">
-        <img src="{% static 'framework/arrow-left.svg' %}" alt="left-arrow" />
+        <img
+          src="{% static 'framework/assets/arrow-left.svg' %}"
+          alt="left-arrow"
+        />
       </button>
       <button
         class="start"
@@ -63,7 +66,10 @@
         <p>{{ mission.formated_action }}</p>
       </button>
       <button class="signal">
-        <img src="{% static 'framework/warning-triangle.svg' %}" alt="error" />
+        <img
+          src="{% static 'framework/assets/warning-triangle-outline.svg' %}"
+          alt="error"
+        />
       </button>
     </footer>
     <script>
