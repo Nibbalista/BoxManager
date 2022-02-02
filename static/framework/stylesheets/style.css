@@ -1,46 +1,46 @@
-body{
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 
-    font-family: 'Montserrat', sans-serif;
-    color: #28CE85;
+  font-family: "Montserrat", sans-serif;
+  color: #28ce85;
 }
 
-.main{
-    width: 75%;
-    max-height: 75%;
-    object-fit: contain;
-    margin: 8px;
+.main {
+  width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+  margin: 8px;
 }
 
-.loading{
-    max-height: 64px;
-    max-width: 64px;
+.loading {
+  max-height: 64px;
+  max-width: 64px;
 
-    margin: 64px;
-    animation: mymove 2s infinite linear;
+  margin: 64px;
+  animation: mymove 2s infinite linear;
 }
 
-h1{
-    margin: 8px;
-    font-size: 5vh;
+h1 {
+  margin: 8px;
+  font-size: 5vh;
 
-    text-align: center;
+  text-align: center;
 }
 
 @keyframes mymove {
-    from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(359deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(359deg);
+  }
+}

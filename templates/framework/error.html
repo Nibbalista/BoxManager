@@ -1,64 +1,62 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'framework/stylesheets/error.css' %}">
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/error.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/global.css' %}"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="header-main">
-            <img src="/assets/logo.jpg" alt="logo">
-            <h1>Box Manager</h1>
-        </div>
-
-        <div class="title">
-            <h1>Erreur Téléphone</h1>
-            <hr>
-        </div>
+      <img src="{% static 'framework/assets/logo.jpg' %}" alt="logo" />
+      <span>Box Manager</span>
     </header>
 
     <main>
-        <div>
-            <select class="listDroulante">
-                <option value="critere1">Téléphone manquant</option>
-                <option value="critere2">Mauvais modèle</option>
-                <option value="critere3">Mauvais état physique</option>
-            </select>
+      <h1 class="title">Erreur Téléphone</h1>
+      <form>
+        <div class="form-group">
+          <select class="listDroulante">
+            <option value="critere1">Téléphone présent sans indication</option>
+            <option value="critere2">Mauvais modèle annoncé</option>
+            <option value="critere3">Téléphone manquant</option>
+          </select>
         </div>
-        <div>
-            </form>
-                <label class="com"> Commentaire :</label>
-                <textarea class="test" id="test"></textarea>
-            </form>
+        <div class="form-group">
+          <label class="com"> Commentaire :</label>
+          <textarea class="test" id="test"></textarea>
         </div>
+      </form>
     </main>
 
     <footer>
-        <button class="retour" onclick="goBack()">
-            <img src="{% static 'framework/arrow-left.svg' %}" alt="left-arrow">
-        </button>
-        <button class="start" onclick="goBack()">
-            <p>Soumettre</p>
-        </button>
+      <button class="retour" onclick="goBack()">
+        <img
+          src="{% static 'framework/assets/arrow-left.svg' %}"
+          alt="left-arrow"
+        />
+      </button>
+      <button class="start" onclick="goBack()">Soumettre</button>
     </footer>
-
-</body>
-
-<script>
-    function goBack() {
-      window.history.back();
-    }
-</script>
-
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
 </html>

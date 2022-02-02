@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'framework/stylesheets/LockerDetails.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <img src="{% static 'framework/logo.jpg' %}" alt="logo">
+            <h1>Box Manager</h1>  
+        </div>
+
+        <div class="title">
+            <h1>Casier 1</h1>
+            <div class="property sp">
+                <h3 class="key" id="date">Code :</h3>
+                <div>
+                    <button class="value e">Agrandir</button>
+                    <img src="{% static 'framework/scan-qr-code.svg' %}" alt="qr ode icon">
+                </div>
+            </div>
+            <hr>
+        </div>
+    </header>
+
+    <main>
+        <div class="scroll">
+            <div class="section">
+                <div class="property">
+                    <h3 class="key" id="state">Action :</h3>
+                    <div>
+                        <p class="value {{ action.action }}">
+                            {{ action.formated_action }}
+                        </p>
+                    </div>
+                </div>
+                <div class="property">
+                    <h3 class="key" id="date">Modèle :</h3>
+                    <div>
+                        <p class="value d">{{ action.product.reference }}</p>
+                        <button onclick="toggle(this)" class="bool"></button>
+                    </div>
+                </div>
+                <div class="property">
+                    <h3 class="key" id="date">Etat :</h3>
+                    <div>
+                        <p class="value d">{{ action.product.physical_state }}</p>
+                        <button onclick="toggle(this)" class="bool"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button class="retour" onclick="goBack()">
+            <img src="{% static 'framework/arrow-left.svg' %}" alt="left-arrow">
+        </button>
+        <button class="start" onclick="goBack()">
+            <p>Valider</p>
+        </button>
+        <button class="signal" onclick="error(this)">
+            <img src="{% static 'framework/warning-triangle.svg' %}" alt="error">
+        </button>
+    </footer>
+
+    <script>
+        function toggle(item) {
+            item.classList.toggle("t");
+        }
+
+        function error(item){
+            location.href = window.location.href+'/error'
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
