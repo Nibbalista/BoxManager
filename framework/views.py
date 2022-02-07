@@ -84,13 +84,13 @@ class ErrorPage(TemplateView):
     template_name = 'framework/error.html'
 
 
-# class QRScanner('TemplateView'):
-#     template_name = 'framework/qrcode.html'
+class QRDisplay(TemplateView):
+    template_name = 'framework/qrcode.html'
 
-#     def get_object_data(self, **kwargs):
-#             context = super().get_context_data(**kwargs)
-#             # payload = Technician.get(...)
-#             payload = "http://www.republiquedesmangues.fr/"
-#             context["payload"] = payload
-#             return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        payload = "http://www.republiquedesmangues.fr/"
+        context['payload'] = payload
+        return context
         

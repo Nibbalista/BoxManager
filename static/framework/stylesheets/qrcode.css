@@ -1,0 +1,15 @@
+.pageBottom {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.qrCodeContainer {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.qr-code img {
+  width: 100%;
+  aspect-ratio: 1;
+}
