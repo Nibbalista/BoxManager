@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/login.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/global.css' %}"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'framework/assets/logo.jpg' %}" alt="logo" />
+      <span>Box Manager</span>
+    </header>
+
+    <main class="main">
+
+      {% if not user.is_authenticated %}
+      <h1 class="title">Connexion</h1>
+      <form method="post">
+        <div class="form-group">
+          {%csrf_token%}
+          {{form}}
+        </div>
+        <button class="confirm" type="submit">Login</button>
+      </form>
+      {%endif%}
+
+      {% if user.is_authenticated %}
+      <div class="alreadyCo-container">
+        <h1 class="logout">Already connected as "{{user}}"</h1>
+        <button class="confirm-logout" onclick="location.href = '/logout/'">Logout</button>
+      </div>
+      {%endif%}
+
+    </main>
+  </body>
+</html>

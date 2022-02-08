@@ -1,3 +1,6 @@
+{% if user.is_authenticated %}
+
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -23,6 +26,7 @@
   <body>
     <header>
       <img src="{% static 'framework/assets/logo.jpg' %}" alt="logo" />
+      <h1>Hello </h1>
       <span>Box Manager</span>
     </header>
 
@@ -94,3 +98,4 @@
     </script>
   </body>
 </html>
+{%endif%}
