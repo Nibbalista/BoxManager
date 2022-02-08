@@ -9,6 +9,10 @@ from django.views import generic
 from django.utils import timezone
 from django.views.generic.base import TemplateView
 from django.contrib.auth import authenticate, login
+from django.db.models import Q
+from django.core import serializers
+
+import json
 
 import datetime
 
@@ -46,7 +50,7 @@ class MissionOverView(TemplateView):
 class TerminalOverview(TemplateView):
     #mission start check
 
-    template_name = 'framework/terminal.html'
+    template_name = 'framework/newTerminal.html'
 
     #pass the actions objects
     def get_context_data(self, **kwargs):
@@ -57,10 +61,13 @@ class TerminalOverview(TemplateView):
         context['terminal'] = terminal
 
         actions = Action.objects.filter(mission=mission)
-        actions_ordered = {}
-        for action in actions:
-            actions_ordered[action.locker.number] = action
-        context['actions'] = actions_ordered
+
+        context['actions'] = actions
+
+        pendingActions = actions.filter(Q(action="DE") | Q(action="WI"))
+        print(pendingActions)
+        context['actionsLength'] = pendingActions.count
+
         return context
 
 class LockerDetails(TemplateView):
@@ -89,7 +96,7 @@ class QRDisplay(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        code = Technician.objects.get(user=self.request.user).Code
         payload = "http://www.republiquedesmangues.fr/"
         context['payload'] = payload
         return context
