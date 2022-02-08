@@ -9,6 +9,7 @@ from django.views import generic
 from django.utils import timezone
 from django.views.generic.base import TemplateView
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 import datetime
 
@@ -21,18 +22,22 @@ class IndexView(TemplateView):
 class LoginView(TemplateView):
     template_name = 'framework/login.html'
 
+
 class MissionsView(TemplateView):
     template_name = 'framework/missions.html'
+    def get_context_data(self, **kwargs,):
+        if not self.request.user.is_authenticated:
+            return None
 
-    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
-        context['missions_week'] = Mission.objects.filter(date__startswith=datetime.date.today())
+        technician = Technician.objects.filter(user=self.request.user).first()
+        context['technician'] = technician
+        context['missions_week'] = Mission.objects.filter(date__startswith=datetime.date.today(), technician = technician).order_by('date')
         context['missions_future'] = Mission.objects.filter(date__gt=datetime.date.today() + datetime.timedelta(days=1)).order_by('date')
         context['missions_count'] = context['missions_week'].count
         context['future_count'] = context['missions_future'].count
-
         return context
+            
 
 class MissionOverView(TemplateView):
     template_name = 'framework/mission-overview.html'

@@ -27,21 +27,23 @@
     </header>
 
     <main class="main">
+      {% if not user.is_authenticated %}
       <h1 class="title">Connexion</h1>
-      <form>
+      <form method="post">
         <div class="form-group">
-          <label for="nameInput">Identifiant</label>
-          <input type="text" id="nameInput" name="nameInput" />
-        </div>
-        <div class="form-group">
-          <label for="passwordInput">Mot de passe</label>
-          <input type="password" id="passwordInput" name="passwordInput" />
-        </div>
+          {%csrf_token%}
+          {{form}}
+        </div>:
+        <button class="confirm" type="submit">Login</button>
       </form>
-
-      <button class="confirm" onclick="location.href = '/missions/'">
+      
         Confirmer
       </button>
+      {%endif%}
+      {% if user.is_authenticated %}
+        <h1 class="logout">Already connected as "{{user}}"</h1>
+        <button onclick="location.href = '/logout/'">Logout</button>
+      {%endif%}
     </main>
   </body>
 </html>

@@ -36,8 +36,8 @@
       return new Promise((resolve) => setTimeout(resolve, time));
     }
 
-    delay(5000).then(() =>
-      window.location.replace("{% url 'framework:login'%}")
-    );
-  </script>
+    delay(5000).then(() => window.location.replace("/login"));
+</script>
+
 </html>
+

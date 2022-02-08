@@ -4,7 +4,7 @@ from . import views
 app_name = 'framework'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('login/', views.LoginView.as_view(), name='login'),
+    #path('login/', views.LoginView.as_view(), name='login'),
     # path('api/login/', views.login , name='api-login'),
     path('missions/', views.MissionsView.as_view(), name='missions'),
     path('mission/<uuid:mission_uuid>/', views.MissionOverView.as_view(), name='mission_overview'),

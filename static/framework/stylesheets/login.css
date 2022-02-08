@@ -21,7 +21,7 @@ form {
   width: 100%;
 }
 
-button {
+button{
   margin: 16px auto 0 auto;
   padding: 4px 24px;
   height: 48px;
@@ -32,4 +32,8 @@ button {
   background-color: #24c686;
   font-size: 24px;
   color: white;
+}
+
+.alreadyCo-container{
+    text-align: center;
 }
