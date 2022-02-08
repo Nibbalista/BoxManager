@@ -9,7 +9,10 @@ from django.views import generic
 from django.utils import timezone
 from django.views.generic.base import TemplateView
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.core import serializers
+
+import json
 
 import datetime
 
@@ -22,22 +25,18 @@ class IndexView(TemplateView):
 class LoginView(TemplateView):
     template_name = 'framework/login.html'
 
-
 class MissionsView(TemplateView):
     template_name = 'framework/missions.html'
-    def get_context_data(self, **kwargs,):
-        if not self.request.user.is_authenticated:
-            return None
 
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        technician = Technician.objects.filter(user=self.request.user).first()
-        context['technician'] = technician
-        context['missions_week'] = Mission.objects.filter(date__startswith=datetime.date.today(), technician = technician).order_by('date')
+        
+        context['missions_week'] = Mission.objects.filter(date__startswith=datetime.date.today())
         context['missions_future'] = Mission.objects.filter(date__gt=datetime.date.today() + datetime.timedelta(days=1)).order_by('date')
         context['missions_count'] = context['missions_week'].count
         context['future_count'] = context['missions_future'].count
+
         return context
-            
 
 class MissionOverView(TemplateView):
     template_name = 'framework/mission-overview.html'
@@ -51,7 +50,7 @@ class MissionOverView(TemplateView):
 class TerminalOverview(TemplateView):
     #mission start check
 
-    template_name = 'framework/terminal.html'
+    template_name = 'framework/newTerminal.html'
 
     #pass the actions objects
     def get_context_data(self, **kwargs):
@@ -62,10 +61,13 @@ class TerminalOverview(TemplateView):
         context['terminal'] = terminal
 
         actions = Action.objects.filter(mission=mission)
-        actions_ordered = {}
-        for action in actions:
-            actions_ordered[action.locker.number] = action
-        context['actions'] = actions_ordered
+
+        context['actions'] = actions
+
+        pendingActions = actions.filter(Q(action="DE") | Q(action="WI"))
+        print(pendingActions)
+        context['actionsLength'] = pendingActions.count
+
         return context
 
 class LockerDetails(TemplateView):
@@ -89,13 +91,13 @@ class ErrorPage(TemplateView):
     template_name = 'framework/error.html'
 
 
-# class QRScanner('TemplateView'):
-#     template_name = 'framework/qrcode.html'
+class QRDisplay(TemplateView):
+    template_name = 'framework/qrcode.html'
 
-#     def get_object_data(self, **kwargs):
-#             context = super().get_context_data(**kwargs)
-#             # payload = Technician.get(...)
-#             payload = "http://www.republiquedesmangues.fr/"
-#             context["payload"] = payload
-#             return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        code = Technician.objects.get(user=self.request.user).Code
+        payload = "http://www.republiquedesmangues.fr/"
+        context['payload'] = payload
+        return context
         

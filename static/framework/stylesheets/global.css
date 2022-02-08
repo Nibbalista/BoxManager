@@ -40,8 +40,8 @@ header img {
 main {
   display: flex;
   flex-direction: column;
-  margin-top: 72px;
-  min-height: calc(100vh - 72px);
+  margin: 72px 0 80px 0;
+  min-height: calc(100vh - 152px);
   padding: 0 16px;
 }
 
@@ -145,4 +145,17 @@ footer .signal {
   width: 48px;
   height: 48px;
   background-color: #f23d3d;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }

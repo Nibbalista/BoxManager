@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/global.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/newTerminal.css' %}"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'framework/assets/logo.jpg' %}" alt="logo" />
+      <span>Box Manager</span>
+    </header>
+
+    <div class="fixedHead">
+      <h1 class="title">Mission 1 - Actions</h1>
+    </div>
+    <main>
+      <div class="head">
+        <div class="row space-between">
+          <div id="pending" class="selector">
+            <span>En attente</span><span class="number">{{actionsLength}}</span>
+          </div>
+          <div id="done" class="selector">Terminées</div>
+        </div>
+      </div>
+      <div id="list" class="list">
+        {% for action in actions %}
+        <div
+          class="action row"
+          data-state="{{action.action}}"
+          data-locker="{{action.product.locker.uuid}}"
+        >
+          <div class="icon">
+            {% if action.action == "NA" %}
+            <img src="{% static 'framework/assets/error.svg'%}" />
+            {% elif action.action == "VA" %}
+            <img src="{% static 'framework/assets/tick.svg'%}" />
+            {% elif action.action == "DE" %}
+            <img src="{% static 'framework/assets/download.svg'%}" />
+            {% elif action.action == "WI" %}
+            <img src="{% static 'framework/assets/upload.svg'%}" />
+            {% endif %}
+          </div>
+          <div class="content">
+            <h2 class="actionTitle">
+              Casier n°{{action.product.locker.number}}
+            </h2>
+            <span class="actionDescription"> {{action.formated_action}}</span>
+          </div>
+          <span class="date"></span>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+
+    <footer>
+      <button class="retour" onclick="goBack()">
+        <img
+          src="{% static 'framework/assets/arrow-left.svg'%}"
+          alt="left-arrow"
+        />
+      </button>
+      <button
+        class="start"
+        onclick="location.href = '../{{mission.uuid}}/terminal'"
+      >
+        MENU
+      </button>
+      <button class="signal">
+        <img
+          src="{% static 'framework/assets/warning-triangle-outline.svg'%}"
+          alt="error"
+        />
+      </button>
+    </footer>
+    <script>
+      let pending = document.getElementById("pending");
+      let done = document.getElementById("done");
+
+      let actions = document.querySelectorAll("[data-locker]");
+
+      actions.forEach((action) => {
+        action.addEventListener("click", async (e) => {
+          let lockerUuid = e.target.getAttribute("data-locker");
+          if (lockerUuid) {
+            return (location.href = `../${missionUuid}/locker/${lockerUuid}`);
+          }
+        });
+      });
+
+      let missionUuid = "{{mission.uuid}}";
+
+      let actionsDone = document.querySelectorAll(
+        "[data-state='NA'], [data-state='VA']"
+      );
+      let actionsPending = document.querySelectorAll(
+        "[data-state='WI'], [data-state='DE']"
+      );
+
+      pending.addEventListener("click", () => {
+        done.classList.remove("selected");
+        pending.classList.add("selected");
+        actionsDone.forEach((action) => {
+          action.classList.add("hidden");
+        });
+        actionsPending.forEach((action) => {
+          action.classList.remove("hidden");
+        });
+      });
+
+      done.addEventListener("click", () => {
+        pending.classList.remove("selected");
+        done.classList.add("selected");
+        actionsDone.forEach((action) => {
+          action.classList.remove("hidden");
+        });
+        actionsPending.forEach((action) => {
+          action.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
