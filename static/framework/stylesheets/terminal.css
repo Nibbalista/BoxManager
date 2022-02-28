@@ -1,0 +1,214 @@
+.container {
+  display: grid;
+  padding: 0 16px 16px 16px;
+  min-height: calc(100vh - 72px);
+  box-sizing: border-box;
+  grid-template-areas:
+    "a b c d"
+    "e f g h"
+    "i j z z"
+    "k l z z"
+    "m n o p"
+    "q r s t"
+    "u v w x";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-gap: 16px;
+  align-items: center;
+  justify-items: center;
+}
+
+.locker {
+  margin: 0px;
+  width: 100%;
+  aspect-ratio: 1 !important;
+
+  background-color: #e6f2ed;
+  border-style: none;
+  border-radius: 5px;
+
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.menu {
+  margin: 0px;
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+
+  grid-area: z;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  background-color: #e6f2ed;
+  border-radius: 5px;
+
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.menu .stats {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.progress {
+  height: 30%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-style: none;
+  border-radius: 5px;
+  background-color: #24c686;
+}
+
+.stats {
+  height: 30%;
+  margin: 8px 0px;
+}
+
+.menu p {
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-style: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+.wit {
+  margin-left: 4px;
+  background-color: #03989e;
+}
+
+.dep {
+  margin-right: 4px;
+  background-color: #f2aa0c;
+}
+
+.menubtn {
+  height: 30%;
+
+  border-style: none;
+  border-radius: 5px;
+  background-color: #24c686;
+  color: white;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Button states */
+.VA {
+  background-image: url("/static/framework/assets/tick.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.NA {
+  background-image: url("/static/framework/assets/error.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.WI {
+  background-image: url("/static/framework/assets/upload.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 3px solid #03989e;
+}
+
+.DE {
+  background-image: url("/static/framework/assets/download.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 3px solid #f2aa0c;
+}
+
+.locker .a {
+  grid-area: a;
+}
+.locker .b {
+  grid-area: b;
+}
+.locker .c {
+  grid-area: c;
+}
+.locker .d {
+  grid-area: d;
+}
+.locker .e {
+  grid-area: e;
+}
+.locker .f {
+  grid-area: f;
+}
+.locker .g {
+  grid-area: g;
+}
+.locker .h {
+  grid-area: h;
+}
+.locker .i {
+  grid-area: i;
+}
+.locker .j {
+  grid-area: j;
+}
+.locker .k {
+  grid-area: k;
+}
+.locker .l {
+  grid-area: l;
+}
+.locker .m {
+  grid-area: m;
+}
+.locker .n {
+  grid-area: n;
+}
+.locker .o {
+  grid-area: o;
+}
+.locker .p {
+  grid-area: p;
+}
+.locker .q {
+  grid-area: q;
+}
+.locker .r {
+  grid-area: r;
+}
+.locker .s {
+  grid-area: s;
+}
+.locker .t {
+  grid-area: t;
+}
+.locker .u {
+  grid-area: u;
+}
+.locker .v {
+  grid-area: v;
+}
+.locker .w {
+  grid-area: w;
+}
+.locker .x {
+  grid-area: x;
+}

@@ -1,0 +1,161 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+body * {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px !important;
+  background-color: rgb(255, 255, 255);
+  color: #24c686;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+header img {
+  width: auto;
+  height: 100%;
+}
+
+header img {
+  width: auto;
+  height: auto;
+  max-height: 60px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 72px 0 80px 0;
+  min-height: calc(100vh - 152px);
+  padding: 0 16px;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  row-gap: 16px;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #28ce85;
+}
+
+.form-group input {
+  height: 48px;
+  margin-bottom: 16px;
+  border: 0;
+  font-size: 1rem;
+  padding-left: 10px;
+  font-weight: 500;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 255, 0.25);
+}
+
+.form-group textarea {
+  border: 0;
+  font-size: 1rem;
+  padding: 10px;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 255, 0.25);
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+footer {
+  position: fixed;
+  z-index: 6;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: fit-content;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+footer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 7.5px;
+  background-color: #24c686;
+  color: white;
+}
+
+footer .retour {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #03989e;
+}
+
+footer .retour p {
+  margin-left: 4px;
+  color: white;
+}
+
+footer .start {
+  padding: 4px 24px;
+  height: 48px;
+  font-size: 24px;
+  background-color: #24c686;
+}
+
+footer .signal {
+  width: 48px;
+  height: 48px;
+  background-color: #f23d3d;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}

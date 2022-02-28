@@ -1,0 +1,100 @@
+{% load static %} {% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/lockerDetails.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'framework/stylesheets/global.css' %}"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="{% static 'framework/assets/logo.jpg'%}" alt="logo" />
+      <span>Box Manager</span>
+    </header>
+    <main>
+      <div class="scroll">
+        <div class="topMenu">
+          <h1>Casier 1</h1>
+          <div class="property sp">
+            <h3 class="key" id="date">Code :</h3>
+            <div class="qr-row">
+              <button class="value e" onclick="goQR()">Agrandir</button>
+              <img
+                src="{% static 'framework/assets/scan-qr-code.svg' %}"
+                alt="qr ode icon"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="property">
+            <h3 class="key" id="state">Action :</h3>
+            <div>
+              <p class="value {{ action.action }}">
+                {{ action.formated_action }}
+              </p>
+            </div>
+          </div>
+          <div class="property">
+            <h3 class="key" id="date">Modèle :</h3>
+            <div>
+              <p class="value d">{{ action.product.reference }}</p>
+              <button onclick="toggle(this)" class="bool"></button>
+            </div>
+          </div>
+          <div class="property">
+            <h3 class="key" id="date">Etat :</h3>
+            <div>
+              <p class="value d">{{ action.product.physical_state }}</p>
+              <button onclick="toggle(this)" class="bool"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <button class="retour" onclick="goBack()">
+        <img
+          src="{% static 'framework/assets/arrow-left.svg' %}"
+          alt="left-arrow"
+        />
+      </button>
+
+      <button class="start" onclick="goQR()">Valider</button>
+
+      <button class="signal">
+        <img
+          src="{% static 'framework/assets/warning-triangle-outline.svg'%}"
+          alt="error"
+        />
+      </button>
+    </footer>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+      function goQR() {
+        location.href = location.href + "/code";
+      }
+
+      function toggle(item) {
+        item.classList.toggle("t");
+      }
+    </script>
+  </body>
+</html>
+{%endif%}

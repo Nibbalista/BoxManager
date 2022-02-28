@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your missions</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'framework/stylesheets/missions.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <img src="{% static 'framework/logo.jpg' %}" alt="logo">
+            <h1>Box Manager</h1>  
+        </div>
+
+        <div class="title">
+            <h1>Vos missions</h1>
+            <hr>
+        </div>
+    </header>
+
+    <main>
+        <div class="scroll">
+            <div class="section">
+                <div class="section-title">
+                    <h2>Disponibles</h2>
+                    <h2 class="section-bubble">{{ missions_count }}</h2>
+                </div>
+                <div class="container">
+                    {% for mission in missions_week %}
+                        <button class="box available" onclick= "location.href = '/mission/{{mission.uuid}}'">
+                            <div class="elements">
+                                <h3>{{ mission.terminal.display_name }}</h3>
+                                <h3>{{ mission.date_formated }}</h3>
+                            </div>
+                            <!-- <button onclick= "location.href = '/mission/{{mission.uuid}}'">VOIR</button> -->
+                        </button>
+                    {% endfor %}
+
+                    <!-- <div class="box available">
+                        <div class="elements">
+                            <h3>Mission #123ABC</h3>
+                            <h3>02/03/2004</h3>
+                        </div>
+                        <button onclick="location.href = '/mission/1/'">VOIR</button>
+                    </div> -->
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="section-title">
+                    <h2>A venir</h2>
+                    <h2 class="section-bubble a">{{ future_count }}</h2>
+                </div>
+                <div class="container">
+                    {% for mission in missions_future %}
+                        <button class="box hidden" onclick="location.href = '/mission/{{mission.uuid}}'">
+                            <div class="elements">
+                                <h3>{{ mission.terminal.display_name }}</h3>
+                                <h3>{{ mission.date_formated }}</h3>
+                            </div>
+                            <!-- <button>APERÇU</button> -->
+                            <!-- onclick="location.href = '/mission/{{mission.uuid}}'" -->
+                        </button>
+                    {% endfor %}
+
+                    <!-- <div class="box hidden">
+                        <div class="elements">
+                            <h3>Mission #123ABC</h3>
+                            <h3>02/03/2004</h3>
+                        </div>
+                        <button onclick="location.href = '/mission/1/'">VOIR</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button class="retour" onclick="goBack()">
+            <img src="{% static 'framework/arrow-left.svg' %}" alt="left-arrow">
+            <p>Retour</p>
+        </button>
+        <button class="signal">
+            <img src="{% static 'framework/warning-triangle.svg' %}" alt="error">
+        </button>
+    </footer>
+</body>
+
+<script>
+    function goBack() {
+      window.history.back();
+    }
+</script>
+
+</html>

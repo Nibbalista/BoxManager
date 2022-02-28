@@ -1,0 +1,33 @@
+.title {
+  color: #053c42;
+  margin: 0 0 32px 0;
+}
+
+.bool {
+  height: 40px;
+  aspect-ratio: 1;
+  padding: 0px;
+  margin: 0px;
+
+  border-style: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.bool.t {
+  background-color: #c6b624;
+  background-image: url("../assets/tick-white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.listDroulante {
+  background-color: #ffffff;
+  width: 100%;
+  height: 40px !important;
+  border-style: none;
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 0 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 255, 0.25);
+}
