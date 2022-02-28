@@ -14,6 +14,6 @@ urlpatterns = [
     path('mission/<uuid:mission_uuid>/terminal', views.TerminalOverview.as_view(), name='terminal_overview'),
     path('mission/<uuid:mission_uuid>/locker/<uuid:locker_uuid>', views.LockerDetails.as_view(), name='object'),
     path('mission/<uuid:mission_uuid>/locker/<uuid:locker_uuid>/error', views.ErrorPage.as_view(), name='error'),
-    path('mission/qrcode', views.QRDisplay.as_view(), name='qr-code'),
+    path('mission/<uuid:mission_uuid>/locker/<uuid:locker_uuid>/code', views.QRDisplay.as_view(), name='qr_code')
 
 ]

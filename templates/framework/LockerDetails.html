@@ -1,5 +1,4 @@
-{% load static %}
-{% if user.is_authenticated %}
+{% load static %} {% if user.is_authenticated %}
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -24,9 +23,21 @@
       <img src="{% static 'framework/assets/logo.jpg'%}" alt="logo" />
       <span>Box Manager</span>
     </header>
-
     <main>
       <div class="scroll">
+        <div class="topMenu">
+          <h1>Casier 1</h1>
+          <div class="property sp">
+            <h3 class="key" id="date">Code :</h3>
+            <div class="qr-row">
+              <button class="value e" onclick="goQR()">Agrandir</button>
+              <img
+                src="{% static 'framework/assets/scan-qr-code.svg' %}"
+                alt="qr ode icon"
+              />
+            </div>
+          </div>
+        </div>
         <div class="section">
           <div class="property">
             <h3 class="key" id="state">Action :</h3>
@@ -60,8 +71,10 @@
           src="{% static 'framework/assets/arrow-left.svg' %}"
           alt="left-arrow"
         />
-        <p>Retour</p>
       </button>
+
+      <button class="start" onclick="goQR()">Valider</button>
+
       <button class="signal">
         <img
           src="{% static 'framework/assets/warning-triangle-outline.svg'%}"
@@ -73,6 +86,11 @@
       function goBack() {
         window.history.back();
       }
+
+      function goQR() {
+        location.href = location.href + "/code";
+      }
+
       function toggle(item) {
         item.classList.toggle("t");
       }

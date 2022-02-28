@@ -82,8 +82,6 @@ class LockerDetails(TemplateView):
                 actions = action
                 break
         
-
-        print(actions)
         context['action'] = actions
         return context
 
@@ -96,8 +94,7 @@ class QRDisplay(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        code = Technician.objects.get(user=self.request.user).Code
-        payload = "http://www.republiquedesmangues.fr/"
-        context['payload'] = payload
+        
+        context['locker_uuid'] = kwargs['locker_uuid']
         return context
         

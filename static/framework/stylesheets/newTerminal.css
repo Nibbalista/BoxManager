@@ -68,6 +68,8 @@ main {
   padding: 16px;
   background-color: #e6f2ed;
   border-radius: 0.4em;
+  user-select: none;
+  cursor: pointer;
 }
 
 .actionTitle {

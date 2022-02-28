@@ -18,6 +18,21 @@
   font-size: 24;
 }
 
+.qr-row {
+  display: flex;
+  column-gap: 8px;
+  cursor: pointer;
+}
+
+.value.e {
+  font-weight: 500;
+  color: white;
+  background-color: #24c686;
+  font-size: 1.1rem;
+  border: 0;
+  cursor: pointer;
+}
+
 .section {
   display: flex;
   flex-direction: column;
