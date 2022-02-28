@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/missions"
 LOGOUT_REDIRECT_URL = "/"
+
+JET_PROJECT = 'boxmanager'
+JET_TOKEN = '0ccfca93-311c-4c11-8c5d-083266f023fb'
