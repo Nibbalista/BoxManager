@@ -26,7 +26,7 @@
     </header>
 
     <div class="fixedHead">
-      <h1 class="title">Mission 1 - Actions</h1>
+      <h1 class="title">Mission {{mission.id}} - Actions</h1>
     </div>
     <main>
       <div class="head">
@@ -41,8 +41,8 @@
         {% for action in actions %}
         <div
           class="action row"
-          data-state="{{action.action}}"
           data-locker="{{action.product.locker.uuid}}"
+          data-state="{{action.action}}"
         >
           <div class="icon">
             {% if action.action == "NA" %}
@@ -112,25 +112,39 @@
       );
 
       pending.addEventListener("click", () => {
-        done.classList.remove("selected");
-        pending.classList.add("selected");
-        actionsDone.forEach((action) => {
-          action.classList.add("hidden");
-        });
-        actionsPending.forEach((action) => {
-          action.classList.remove("hidden");
-        });
+        if (pending.classList.contains("selected")) {
+          pending.classList.remove("selected");
+          actionsDone.forEach((action) => {
+            action.classList.remove("hidden");
+          });
+        } else {
+          done.classList.remove("selected");
+          pending.classList.add("selected");
+          actionsDone.forEach((action) => {
+            action.classList.add("hidden");
+          });
+          actionsPending.forEach((action) => {
+            action.classList.remove("hidden");
+          });
+        }
       });
 
       done.addEventListener("click", () => {
-        pending.classList.remove("selected");
-        done.classList.add("selected");
-        actionsDone.forEach((action) => {
-          action.classList.remove("hidden");
-        });
-        actionsPending.forEach((action) => {
-          action.classList.add("hidden");
-        });
+        if (done.classList.contains("selected")) {
+          done.classList.remove("selected");
+          actionsPending.forEach((action) => {
+            action.classList.remove("hidden");
+          });
+        } else {
+          pending.classList.remove("selected");
+          done.classList.add("selected");
+          actionsDone.forEach((action) => {
+            action.classList.remove("hidden");
+          });
+          actionsPending.forEach((action) => {
+            action.classList.add("hidden");
+          });
+        }
       });
     </script>
   </body>

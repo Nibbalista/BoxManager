@@ -25,7 +25,7 @@
       <img src="{% static 'framework/assets/logo.jpg'%}" alt="logo" />
       <span>Box Manager</span>
     </header>
-    {{ payload|json_script:"payload" }}
+    {{ locker_uuid|json_script:"locker_uuid" }}
     <main>
       <h1 class="title">Votre QR Code</h1>
       <div class="pageBottom">
@@ -59,8 +59,9 @@
       }
 
       const payload = JSON.parse(
-        document.getElementById("payload").textContent
+        document.getElementById("locker_uuid").textContent
       );
+      
       document.querySelector(".qr-code").style = "";
 
       var qrcode = new QRCode(document.querySelector(".qr-code"), {
