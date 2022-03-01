@@ -61,10 +61,12 @@
           alt="left-arrow"
         />
       </button>
-      <button
-        class="start"
-        onclick="location.href = '../{{mission.uuid}}/terminal'"
-      >
+      
+      {% if Mission.finish %}
+            <button class="start" onclick="location.href = '../../missions'">
+        {% else %}
+            <button class="start" onclick="location.href = '../{{mission.uuid}}/terminal'">        
+        {% endif %} 
         <p>{{ mission.formated_action }}</p>
       </button>
       <button class="signal">

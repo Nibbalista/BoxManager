@@ -43,7 +43,21 @@ class MissionOverView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        mission = Mission.objects.get(uuid=kwargs['mission_uuid'])
+        mission = Mission.objects.get(uuid=kwargs['mission_uuid'])   
+        avancement = 100
+        if avancement==0:
+            mission.commencer()
+        elif avancement==5:
+            mission.continuer()
+        elif avancement==100:
+            mission.terminer()
+        #elif avancement==101:
+        #    mission.finish()
+        mission.save()
+        finish = False
+        if mission.status == 'CO':
+            finish= True
+            
         context['mission'] = mission
         return context
 
